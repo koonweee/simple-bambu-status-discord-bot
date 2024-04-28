@@ -87,7 +87,7 @@ bot.on('messageCreate', (message) => {
     const { isPrinting, print_name, progress, eta_minutes, print_error_code } = last_message
     // Add eta_minutes to current time (PST)
     const eta_date = new Date(Date.now() + eta_minutes * 60000)
-    const eta_timestamp = `${eta_date.toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles', month: 'long' })}, ${eta_date.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}`
+    const eta_timestamp = `${eta_date.toLocaleDateString('en-US', { month: 'long' })}, ${eta_date.toLocaleTimeString('en-US')}`
     if (isPrinting) {
       message.reply(`Printing **${print_name}** ${progress}%\nETA: ${eta_minutes} minutes (**${eta_timestamp}**)${print_error_code ? `\n⚠️ *Print error code: ${print_error_code}*` : ''}`)
     } else {
